@@ -14,8 +14,10 @@ namespace Lab7_LucasLavin
     {
         // Variables a usar
         String Operacion = "";
-        Double firstNumber, secondNumber;
-        Double ans = 0;
+        Decimal firstNumber=0.0m, secondNumber=0.0m;
+        Decimal ans = 0.0m;
+        int milliseconds = 2000;
+        
         public CalculadoraLucasLavin()
         {
             InitializeComponent();
@@ -54,17 +56,14 @@ namespace Lab7_LucasLavin
         private void Operaciones(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            firstNumber = Double.Parse(textDisplay.Text);
+            firstNumber = Decimal.Parse(textDisplay.Text);
             Operacion = b.Text;
             textDisplay.Text = "";
-            
-
-
         }
 
         private void Igual_Click(object sender, EventArgs e)
         {
-            secondNumber = double.Parse(textDisplay.Text);
+            secondNumber = Decimal.Parse(textDisplay.Text);
             
             switch (Operacion)
             {
@@ -73,31 +72,38 @@ namespace Lab7_LucasLavin
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text= "System ERROR";
+                        System.Threading.Thread.Sleep(milliseconds);
                         textDisplay.Text = "0";
                         break;
                     }
+                    ans = Decimal.Parse(textDisplay.Text);
                     break;
                 case "-":
                     textDisplay.Text = Convert.ToString(firstNumber - secondNumber);
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text = "System ERROR";
+                        System.Threading.Thread.Sleep(milliseconds);
                         textDisplay.Text = "0";
 
                         break;
                     }
+                    ans = Decimal.Parse(textDisplay.Text);
                     break;
                 case "/":
                     if (secondNumber!=0)
                     {
                         textDisplay.Text = Convert.ToString(firstNumber / secondNumber);
+                        
                         if (textDisplay.TextLength > 24)
                         {
                             textDisplay.Text = "System ERROR";
+                            System.Threading.Thread.Sleep(milliseconds);
                             textDisplay.Text = "0";
 
                             break;
                         }
+                        ans = Decimal.Parse(textDisplay.Text);
                     }
                     else
                     {
@@ -109,10 +115,13 @@ namespace Lab7_LucasLavin
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text = "System ERROR";
+                        System.Threading.Thread.Sleep(milliseconds);
                         textDisplay.Text = "0";
 
                         break;
                     }
+                    ans = Decimal.Parse(textDisplay.Text);
+
                     break;
                 default:
                     textDisplay.Text.Contains("");
@@ -124,11 +133,24 @@ namespace Lab7_LucasLavin
 
         private void Punto_Click(object sender, EventArgs e)
         {
+            // Funciona poner el punto, pero no los calcula como decimal, sino que como enteros.
             Button btn = (Button)sender;
             if (!textDisplay.Text.Contains("."))
             {
                 textDisplay.Text += btn.Text;
             }
+        }
+
+        private void Ans_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            textDisplay.Text = Convert.ToString(ans);
+
+        }
+
+        private void Historial_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Numeros(object sender, EventArgs e)
