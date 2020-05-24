@@ -69,6 +69,8 @@ namespace Lab7_LucasLavin
             {
                 case "+":
                     textDisplay.Text = Convert.ToString(firstNumber + secondNumber);
+                    //Codigo para que no se caiga el problema, dice que es un error, y se va a cero
+
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text= "System ERROR";
@@ -80,6 +82,8 @@ namespace Lab7_LucasLavin
                     break;
                 case "-":
                     textDisplay.Text = Convert.ToString(firstNumber - secondNumber);
+                    //Codigo para que no se caiga el problema, dice que es un error, y se va a cero
+
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text = "System ERROR";
@@ -94,7 +98,7 @@ namespace Lab7_LucasLavin
                     if (secondNumber!=0)
                     {
                         textDisplay.Text = Convert.ToString(firstNumber / secondNumber);
-                        
+                        //Codigo para que no se caiga el problema, dice que es un error, y se va a cero
                         if (textDisplay.TextLength > 24)
                         {
                             textDisplay.Text = "System ERROR";
@@ -112,6 +116,8 @@ namespace Lab7_LucasLavin
                     break;
                 case "x":
                     textDisplay.Text = Convert.ToString(firstNumber * secondNumber);
+                    //Codigo para que no se caiga el problema, dice que es un error, y se va a cero
+
                     if (textDisplay.TextLength > 24)
                     {
                         textDisplay.Text = "System ERROR";
