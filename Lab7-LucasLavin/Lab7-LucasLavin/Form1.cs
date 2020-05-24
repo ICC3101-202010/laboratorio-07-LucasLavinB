@@ -70,14 +70,34 @@ namespace Lab7_LucasLavin
             {
                 case "+":
                     textDisplay.Text = Convert.ToString(firstNumber + secondNumber);
+                    if (textDisplay.TextLength > 24)
+                    {
+                        textDisplay.Text= "System ERROR";
+                        textDisplay.Text = "0";
+                        break;
+                    }
                     break;
                 case "-":
                     textDisplay.Text = Convert.ToString(firstNumber - secondNumber);
+                    if (textDisplay.TextLength > 24)
+                    {
+                        textDisplay.Text = "System ERROR";
+                        textDisplay.Text = "0";
+
+                        break;
+                    }
                     break;
                 case "/":
                     if (secondNumber!=0)
                     {
                         textDisplay.Text = Convert.ToString(firstNumber / secondNumber);
+                        if (textDisplay.TextLength > 24)
+                        {
+                            textDisplay.Text = "System ERROR";
+                            textDisplay.Text = "0";
+
+                            break;
+                        }
                     }
                     else
                     {
@@ -86,6 +106,13 @@ namespace Lab7_LucasLavin
                     break;
                 case "x":
                     textDisplay.Text = Convert.ToString(firstNumber * secondNumber);
+                    if (textDisplay.TextLength > 24)
+                    {
+                        textDisplay.Text = "System ERROR";
+                        textDisplay.Text = "0";
+
+                        break;
+                    }
                     break;
                 default:
                     textDisplay.Text.Contains("");
@@ -95,21 +122,24 @@ namespace Lab7_LucasLavin
             
         }
 
+        private void Punto_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (!textDisplay.Text.Contains("."))
+            {
+                textDisplay.Text += btn.Text;
+            }
+        }
+
         private void Numeros(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            if (textDisplay.Text== "0")
-                textDisplay.Text = "";
-            
-            if (btn.Text== ".")
+            if (textDisplay.Text == "0")
             {
-                if (!textDisplay.Text.Contains("."))
-                    textDisplay.Text = textDisplay.Text + btn.Text;
+                textDisplay.Clear();
+
             }
-            else
-            {
-                textDisplay.Text = textDisplay.Text + btn.Text;
-            }
+            textDisplay.Text = textDisplay.Text + btn.Text;
 
         }
 

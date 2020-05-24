@@ -177,7 +177,7 @@
             this.punto.TabIndex = 15;
             this.punto.Text = ".";
             this.punto.UseVisualStyleBackColor = true;
-            this.punto.Click += new System.EventHandler(this.Numeros);
+            this.punto.Click += new System.EventHandler(this.Punto_Click);
             // 
             // resta
             // 
